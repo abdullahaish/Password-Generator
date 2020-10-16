@@ -15,7 +15,7 @@ def low():
 
 	lower = "abcdefghijklmnopqrstuvwxyz"
 	upper = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz"
-	digits = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789 !@#$%^&*()"
+	digits = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789 !@#$%^&*()[]{};:'<>"
 	password = "" 
 
 	# if strength selected is low 
@@ -53,8 +53,10 @@ def generate():
 		entry.grid(row=3, column=1, pady=5) 
 		entry.insert(10, password1) 
 		messagebox.showinfo("Password Generator", "Password Generate Successfully!")
-		copy_button = Button(root, text="Copy", command=copy1) 
-		copy_button.grid(row=3, column=2, padx=5)
+		msg = messagebox.askyesno("Password Generator", "Do You Want To Copy Password?")
+		if msg == True:
+			copy_button = Button(root, text="Copy", command=copy1) 
+			copy_button.grid(row=3, column=2, padx=5)
 	
 def copy1(): 
 	random_password = entry.get() 
