@@ -43,10 +43,12 @@ def low():
 # Function for generation of password 
 def generate(): 
 	global entry
+	global auto_btn
 	if combo.get() == "" or combo.get() == "Length":
 		messagebox.showwarning("Warning", "Please Enter Length!")
 		# messagebox.showinfo("Show Info", "Message Box")
 	else:
+		root.geometry("290x120")
 		password1 = low() 
 		Random_password = Label(root, text="Password: ") 
 		Random_password.grid(row=3) 
@@ -70,17 +72,18 @@ def copy1():
 	
 def auto():
 	msg1 = messagebox.askyesno("Password Generator", "Do You Want To Change Password Automatically?")
-	if msg1 == True:
+	if msg1 == False:
+		root.geometry("290x120")
+	else:
 		time.sleep(10)
 		generate()
-
 
 # Main Function 
 
 # create GUI window 
 root = Tk() 
 root.iconbitmap("pass.ico")
-root.geometry("300x120")
+root.geometry("300x90")
 var = IntVar() 
 var1 = IntVar() 
 
