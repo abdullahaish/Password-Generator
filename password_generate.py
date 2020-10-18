@@ -5,6 +5,7 @@ from tkinter import messagebox
 from tkinter import *
 from tkinter.ttk import *
 import pyperclip
+import time
 
 # Function for calculation of password 
 def low(): 
@@ -53,14 +54,19 @@ def generate():
 		entry.grid(row=3, column=1, pady=5) 
 		entry.insert(10, password1) 
 		messagebox.showinfo("Password Generator", "Password Generate Successfully!")
-		msg = messagebox.askyesno("Password Generator", "Do You Want To Copy Password?")
+		msg = messagebox.askyesno("Password Generator", "Do You Want To Copy And Change Your Password Automatically?")
 		if msg == True:
 			copy_button = Button(root, text="Copy", command=copy1) 
 			copy_button.grid(row=3, column=2, padx=5)
-	
+			time.sleep(10)
+			generate()
+
+
 def copy1(): 
 	random_password = entry.get() 
 	pyperclip.copy(random_password) 
+	
+	
 
 
 # Main Function 
