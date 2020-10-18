@@ -58,18 +58,21 @@ def generate():
 		if msg == True:
 			copy_button = Button(root, text="Copy", command=copy1) 
 			copy_button.grid(row=3, column=2, padx=5)
+			root.geometry("375x120")
+			auto_btn = Button(root, text="Auto", comman=auto)
+			auto_btn.grid(row=3, column=3, padx=5)
 				
 
 
 def copy1(): 
-	msg1 = messagebox.askyesno("Password Generator", "Do You Want To Chnage Password Automatically?")
-	if msg1 == True:
-		time.sleep(10)
-		generate()
 	random_password = entry.get() 
 	pyperclip.copy(random_password) 
 	
-	
+def auto():
+	msg1 = messagebox.askyesno("Password Generator", "Do You Want To Change Password Automatically?")
+	if msg1 == True:
+		time.sleep(10)
+		generate()
 
 
 # Main Function 
